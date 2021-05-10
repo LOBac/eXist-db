@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="bacterium">
+	<table_structure name="Bacterium">
+		<field Field="idBacterium" Type="int" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="Morphology" Type="enum('Coccus','Bacillus','Other')" Null="NO" Key="UNI" Extra="" Comment="" />
+		<field Field="YearOfDiscovery" Type="int" Null="NO" Key="UNI" Extra="" Comment="" />
+		<field Field="TypeMetabolism" Type="varchar(45)" Null="NO" Key="UNI" Extra="" Comment="" />
+		<field Field="Movement" Type="varchar(45)" Null="NO" Key="UNI" Extra="" Comment="" />
+		<field Field="Morphology_Coccus" Type="varchar(75)" Null="NO" Key="UNI" Extra="" Comment="" />
+		<field Field="OxygenDemand" Type="enum('Aerobic','Anaerobic')" Null="NO" Key="UNI" Extra="" Comment="" />
+		<field Field="GramStain" Type="tinyint" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="Taxonomy_Species" Type="varchar(75)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<key Table="Bacterium" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="idBacterium" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Bacterium" Non_unique="0" Key_name="PRIMARY" Seq_in_index="2" Column_name="Taxonomy_Species" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Bacterium" Non_unique="0" Key_name="idBacteria_UNIQUE" Seq_in_index="1" Column_name="idBacterium" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Bacterium" Non_unique="0" Key_name="Morphology_UNIQUE" Seq_in_index="1" Column_name="Morphology" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Bacterium" Non_unique="0" Key_name="YearOfDiscovery_UNIQUE" Seq_in_index="1" Column_name="YearOfDiscovery" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Bacterium" Non_unique="0" Key_name="TypeMetabolism_UNIQUE" Seq_in_index="1" Column_name="TypeMetabolism" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Bacterium" Non_unique="0" Key_name="Movement_UNIQUE" Seq_in_index="1" Column_name="Movement" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Bacterium" Non_unique="0" Key_name="Morphology_Coccus_UNIQUE" Seq_in_index="1" Column_name="Morphology_Coccus" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Bacterium" Non_unique="0" Key_name="OxygenDemand_UNIQUE" Seq_in_index="1" Column_name="OxygenDemand" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Bacterium" Non_unique="1" Key_name="fk_Bacterium_Taxonomy1_idx" Seq_in_index="1" Column_name="Taxonomy_Species" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<options Name="Bacterium" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="1" Avg_row_length="16384" Data_length="16384" Max_data_length="0" Index_length="131072" Data_free="0" Create_time="2021-05-10 16:36:24" Update_time="2021-05-10 16:40:07" Collation="utf8mb4_0900_ai_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="Bacterium">
+	<row>
+		<field name="idBacterium">1</field>
+		<field name="Morphology">Coccus</field>
+		<field name="YearOfDiscovery">1921</field>
+		<field name="TypeMetabolism">Aerobic</field>
+		<field name="Movement">a</field>
+		<field name="Morphology_Coccus">e</field>
+		<field name="OxygenDemand">Aerobic</field>
+		<field name="GramStain">0</field>
+		<field name="Taxonomy_Species">g</field>
+	</row>
+	</table_data>
+	<table_structure name="Disease">
+		<field Field="NameDisease" Type="varchar(75)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="Symptoms" Type="varchar(45)" Null="YES" Key="UNI" Extra="" Comment="" />
+		<field Field="HasCure" Type="tinyint" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="Description" Type="varchar(500)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="Bacterium_idBacterium" Type="int" Null="NO" Key="MUL" Extra="" Comment="" />
+		<key Table="Disease" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="NameDisease" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Disease" Non_unique="0" Key_name="NameDisease_UNIQUE" Seq_in_index="1" Column_name="NameDisease" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Disease" Non_unique="0" Key_name="Symptoms_UNIQUE" Seq_in_index="1" Column_name="Symptoms" Collation="A" Cardinality="0" Null="YES" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Disease" Non_unique="1" Key_name="fk_Disease_Bacterium1_idx" Seq_in_index="1" Column_name="Bacterium_idBacterium" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<options Name="Disease" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="49152" Data_free="0" Create_time="2021-05-10 16:36:24" Collation="utf8mb4_0900_ai_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="Disease">
+	</table_data>
+	<table_structure name="Gen">
+		<field Field="Category" Type="enum('CIRCULAR','LINEAR','PLASMID','MEGAPLASMID')" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="Secuence" Type="mediumtext" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="Genome_idGenome1" Type="int" Null="NO" Key="MUL" Extra="" Comment="" />
+		<key Table="Gen" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="Category" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Gen" Non_unique="1" Key_name="fk_Gen_Genome1_idx" Seq_in_index="1" Column_name="Genome_idGenome1" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<options Name="Gen" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Create_time="2021-05-10 16:36:24" Collation="utf8mb4_0900_ai_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="Gen">
+	</table_data>
+	<table_structure name="Genome">
+		<field Field="idGenome" Type="int" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="Category" Type="enum('CIRCULAR','LINEAR','PLASMID','MEGAPLASMID')" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="Bacterium_idBacterium" Type="int" Null="NO" Key="MUL" Extra="" Comment="" />
+		<key Table="Genome" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="idGenome" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Genome" Non_unique="0" Key_name="idGenome_UNIQUE" Seq_in_index="1" Column_name="idGenome" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Genome" Non_unique="1" Key_name="fk_Genome_Bacterium1_idx" Seq_in_index="1" Column_name="Bacterium_idBacterium" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<options Name="Genome" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Create_time="2021-05-10 16:36:24" Collation="utf8mb4_0900_ai_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="Genome">
+	</table_data>
+	<table_structure name="Taxonomy">
+		<field Field="Domain" Type="varchar(75)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="Phylum" Type="varchar(75)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="Class" Type="varchar(75)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="Order" Type="varchar(75)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="Family" Type="varchar(75)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="Genus" Type="varchar(75)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="Species" Type="varchar(75)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<key Table="Taxonomy" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="Species" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<key Table="Taxonomy" Non_unique="0" Key_name="Species_UNIQUE" Seq_in_index="1" Column_name="Species" Collation="A" Cardinality="1" Null="" Index_type="BTREE" Comment="" Index_comment="" Visible="YES" />
+		<options Name="Taxonomy" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="1" Avg_row_length="16384" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Create_time="2021-05-10 16:36:24" Update_time="2021-05-10 16:39:19" Collation="utf8mb4_0900_ai_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="Taxonomy">
+	<row>
+		<field name="Domain">a</field>
+		<field name="Phylum">b</field>
+		<field name="Class">c</field>
+		<field name="Order">d</field>
+		<field name="Family">e</field>
+		<field name="Genus">f</field>
+		<field name="Species">g</field>
+	</row>
+	</table_data>
+</database>
+</mysqldump>
